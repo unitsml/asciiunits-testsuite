@@ -1,0 +1,35 @@
+# asciiunits-testsuite
+
+Cross-language conformance suite for
+[asciiunits](https://github.com/unitsml/asciiunits) — the UnitsML
+AsciiUnits unit-expression grammar.
+
+Every asciiunits runtime (Ruby `unitsml`/`asciiunits`, TypeScript
+`asciiunits-ts`, future Rust) replays this suite as its conformance gate:
+same inputs, same accept/reject kinds, same artifact trees.
+
+## Contents
+
+* `corpora/unitsml/inputs.txt` — one expression per line (`ACCEPT`/`REJECT` + TAB)
+* `corpora/unitsml/expected-kinds.json` — the frozen oracle: input → kind,
+  baselined against the unitsml-ruby Parslet parser (v0.6.9-era grammar,
+  incl. the decibel work)
+* `corpora/unitsml/corpus.json` — artifact replay with recorded parsanol
+  trees, bound to the artifact checksum
+* `scripts/replay.mjs` — TypeScript-runtime replay harness
+
+## Provenance
+
+Derived from `unitsml/asciiunits` (grammar `UnitsmlAscii` v0.1.0, artifact
+checksum in `corpora/unitsml/corpus.json`). Regenerate upstream, then sync
+here; runtimes pin a suite tag.
+
+## Replay
+
+```sh
+node scripts/replay.mjs            # uses @unitsml/asciiunits-ts
+```
+
+A runtime passes when: every `accept` input parses, every `reject` input
+raises, and (for tree-checking runtimes) the parsanol tree matches
+`corpus.json`.
