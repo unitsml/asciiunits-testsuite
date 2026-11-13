@@ -33,3 +33,7 @@ node scripts/replay.mjs            # uses @unitsml/asciiunits-ts
 A runtime passes when: every `accept` input parses, every `reject` input
 raises, and (for tree-checking runtimes) the parsanol tree matches
 `corpus.json`.
+
+== Corpus integrity
+
+Run `node scripts/validate-corpus.mjs` with Node24 to verify the source-producer pin, current payload byte seals, case/kind agreement and preserved prior generation. The latest corpus remains at `corpora/unitsml/`; prior sealed payloads are retained under its `generations/` directory. Consumer replay belongs to the parser package and uses `CORPUS_DIR` to select this corpus.
