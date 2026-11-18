@@ -1,6 +1,6 @@
 {
   "grammar": "unitsml",
-  "artifact_checksum": "sha256:da65d7cb155970ca2b2492dfc464ad5407d4a3b1c951c3c60a7d2177dcaa06d9",
+  "artifact_checksum": "sha256:3a5d423ea975d46e9ab4b98a652e9276849f540226466dbacdd5001b2f6a5016",
   "cases": [
     {
       "input": "m",
@@ -553,6 +553,13 @@
           "length": 1,
           "line": 1,
           "column": 1
+        },
+        "hyphen": {
+          "value": "-",
+          "offset": 1,
+          "length": 1,
+          "line": 1,
+          "column": 2
         }
       }
     },
@@ -566,6 +573,13 @@
           "length": 1,
           "line": 1,
           "column": 1
+        },
+        "hyphen": {
+          "value": "-",
+          "offset": 1,
+          "length": 1,
+          "line": 1,
+          "column": 2
         }
       }
     },
@@ -1513,6 +1527,13 @@
           "length": 1,
           "line": 1,
           "column": 1
+        },
+        "hyphen": {
+          "value": "-",
+          "offset": 1,
+          "length": 1,
+          "line": 1,
+          "column": 2
         }
       }
     },
@@ -1526,6 +1547,13 @@
           "length": 2,
           "line": 1,
           "column": 1
+        },
+        "hyphen": {
+          "value": "-",
+          "offset": 2,
+          "length": 1,
+          "line": 1,
+          "column": 3
         }
       }
     },
@@ -1539,6 +1567,13 @@
           "length": 1,
           "line": 1,
           "column": 1
+        },
+        "hyphen": {
+          "value": "-",
+          "offset": 1,
+          "length": 1,
+          "line": 1,
+          "column": 2
         }
       }
     },

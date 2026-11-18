@@ -1,0 +1,32 @@
+{
+  "producer": "unitsml/asciiunits",
+  "producer_commit": "9b9c1016cb8d6c8a7e7d02b3eaf61b034ba51712",
+  "producer_script": "scripts/regen_contracts.rb (rake contracts:regen), oracle via scripts/gen_oracle.rb",
+  "copied_verbatim_from": [
+    "corpora/unitsml/corpus.json",
+    "corpora/unitsml/expected-kinds.json",
+    "corpora/unitsml/inputs.txt"
+  ],
+  "artifact_checksum": "sha256:3a5d423ea975d46e9ab4b98a652e9276849f540226466dbacdd5001b2f6a5016",
+  "artifact_json_sha256": "sha256:98e53c5fa31233725158a49af75361b0aacc4bf3292a8c09675995f85a0b7e4c",
+  "grammar_source_hash": "sha256:7702a1bd52072d5d860e8176b50b5bebb218c1fda864592bb7313419e94506e3",
+  "compiler_version": "1.5.8",
+  "grammar_edition": 2,
+  "files_sha256": {
+    "corpus.json": "sha256:deacefbd7f320b554ae1d9998dadceaba29382aa8ba349f339eac67ab14fac0a",
+    "expected-kinds.json": "sha256:fb2bc43b454751f4020937eb08e6da6e6f613f072adaaf26e606d3b6ba88b2cf",
+    "inputs.txt": "sha256:48f4f0f61c6f87e02349537567d4094b04cec2c6771e14161787dccb0ed521f9"
+  },
+  "supersedes": {
+    "artifact_checksum": "sha256:aa22618c80dc02f3fe1edf2c798dbe34aceae5f4d84524ff98f76a2b91af151d",
+    "compiler_version": "1.3.113",
+    "testsuite_commit": "607f891360287b1f26b149332358644d230741a1",
+    "difference": "143/143 cases same input and kind; 81 trees identical, 62 differ only by the unnamed rule refs lparen/rparen/end_guard that parsanol 1.5 no longer emits (asciiunits 9b9c101)",
+    "preserved_at": "generations/aa22618c80dc02f3fe1edf2c798dbe34aceae5f4d84524ff98f76a2b91af151d",
+    "files_sha256": {
+      "corpus.json": "sha256:9b487501ae48b7f23a2f747002c83259a240607831030803dec2ee2a02a4eeda",
+      "expected-kinds.json": "sha256:b7f3be8488c0e8fe7a1be6bcf74a43016de754b4dd0ebfdd6621860e1e2856df",
+      "inputs.txt": "sha256:48f4f0f61c6f87e02349537567d4094b04cec2c6771e14161787dccb0ed521f9"
+    }
+  }
+}
