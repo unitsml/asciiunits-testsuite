@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve, relative, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 const root=resolve(process.argv[2]??resolve(dirname(fileURLToPath(import.meta.url)),"../corpora/unitsml"));
@@ -14,4 +14,6 @@ assert.equal(corpus.artifact_checksum,provenance.artifact_checksum);assert.ok(co
 for(let i=0;i<corpus.cases.length;i++){const row=corpus.cases[i];assert.equal(typeof row.input,"string");assert.equal(row.input,kinds.cases[i].input);assert.equal(row.kind,kinds.cases[i].kind);}
 const previous=inside(root,provenance.supersedes.preserved_at);const generation=read(resolve(previous,"generation.json"));verify(previous,generation.files_sha256);verify(previous,provenance.supersedes.files_sha256);
 const older=read(resolve(previous,"corpus.json"));assert.equal(older.artifact_checksum,generation.artifact_checksum);assert.equal(older.cases.length,generation.cases);assert.equal(generation.source_commit,provenance.supersedes.testsuite_commit);
-console.log(JSON.stringify({current_cases:corpus.cases.length,previous_cases:older.cases.length,producer:provenance.producer_commit,byte_seals:"verified"}));
+const generations=readdirSync(inside(root,"generations")).sort();assert.ok(generations.includes(previous.slice(previous.lastIndexOf("generations")+12)),"supersedes is not a preserved generation");
+for(const name of generations){const dir=inside(root,`generations/${name}`);const meta=read(resolve(dir,"generation.json"));verify(dir,meta.files_sha256);const rows=read(resolve(dir,"corpus.json"));assert.equal(meta.artifact_checksum,`sha256:${name}`);assert.equal(rows.artifact_checksum,meta.artifact_checksum);assert.equal(rows.cases.length,meta.cases);}
+console.log(JSON.stringify({current_cases:corpus.cases.length,previous_cases:older.cases.length,generations:generations.length,producer:provenance.producer_commit,byte_seals:"verified"}));

@@ -37,3 +37,5 @@ raises, and (for tree-checking runtimes) the parsanol tree matches
 == Corpus integrity
 
 Run `node scripts/validate-corpus.mjs` with Node24 to verify the source-producer pin, current payload byte seals, case/kind agreement and preserved prior generation. The latest corpus remains at `corpora/unitsml/`; prior sealed payloads are retained under its `generations/` directory. Consumer replay belongs to the parser package and uses `CORPUS_DIR` to select this corpus.
+
+The current corpus is bound to the artifact compiled by parsanol 1.5.8 (checksum `3a5d423e...`). Runtimes that still ship the parsanol 1.3.113 artifact (checksum `aa22618c...`) point `CORPUS_DIR` at `corpora/unitsml/generations/aa22618c80dc02f3fe1edf2c798dbe34aceae5f4d84524ff98f76a2b91af151d` until they recompile.
